@@ -1,5 +1,5 @@
 /**
- * Game Module
+ * Game Engine Module
  *
  * @author Pekka S.
  * @package JS Game Framework

@@ -1,5 +1,5 @@
 /**
- * Canvas Module
+ * Game Canvas Module
  *
  * @author Pekka S.
  * @package JS Game Framework
