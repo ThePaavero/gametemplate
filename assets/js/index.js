@@ -13,6 +13,7 @@
  * Don't create more, please.
  */
 
+// Create our base object/namespace
 var game = {};
 
 // Include JS files that create methods/objects to our game object
