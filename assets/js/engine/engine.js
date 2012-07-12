@@ -41,6 +41,16 @@ game.engine = function()
 		self.canvas_object = canvas_object;
 	}
 
+	/**
+	 * Set canvas element's context
+	 *
+	 * @param {object} c Canvas element's Context object
+	 */
+	self.set_canvas_context = function(c)
+	{
+		self.c = c;
+	}
+
 	// Run constructor
 	self.init();
 }

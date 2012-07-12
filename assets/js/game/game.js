@@ -1,10 +1,14 @@
 /**
  * Game JS
+ *
+ * The important thing is the game object (do "log(game);" to see)
  */
 
-game.run = function()
+game.run = function(base)
 {
 	var self = this;
+
+	self.base = base;
 
 	self.init = function()
 	{

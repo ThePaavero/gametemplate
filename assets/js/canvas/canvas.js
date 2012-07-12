@@ -31,8 +31,10 @@ game.canvas = function(width, height)
 	 */
 	self.spawn = function()
 	{
-		self.el = document.createElement('canvas');
-		self.el.id = game.id + '_canvas';
+		self.el      = document.createElement('canvas');
+		self.el.id   = game.id + '_canvas';
+		self.context = self.el.getContext('2d');
+
 		document.body.appendChild(self.el);
 	}
 
@@ -64,6 +66,11 @@ game.canvas = function(width, height)
 		}
 
 		return self.el;
+	}
+
+	self.get_context = function()
+	{
+		return self.context;
 	}
 
 	// Run constructor
