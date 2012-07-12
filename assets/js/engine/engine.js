@@ -51,6 +51,32 @@ game.engine = function()
 		self.c = c;
 	}
 
+	/**
+	 * Run "frames" inside our canvas
+	 *
+	 * @return void
+	 */
+	self.run = function()
+	{
+		setInterval(function()
+		{
+			self.canvas_object.update();
+		}, 1);
+	}
+
+	/**
+	 * This is what happens for each "frame" inside our canvas
+	 *
+	 * @return void
+	 */
+	self.update = function()
+	{
+		self.canvas_object.clear();
+
+		// Todo: Stuff to do on each frame!
+	}
+
+
 	// Run constructor
 	self.init();
 }

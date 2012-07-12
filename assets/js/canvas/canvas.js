@@ -75,10 +75,25 @@ game.canvas = function(width, height)
 		return self.el;
 	}
 
+	/**
+	 * Get my context(2d) property
+	 *
+	 * @return Object property
+	 */
 	self.get_context = function()
 	{
 		return self.context;
 	}
+
+	/**
+	 * Clear the canvas (the engine will call upon this between its "frames")
+	 *
+	 * @return void
+	 */
+	self.clear = function()
+	{
+		self.context.clearRect(0, 0, self.context.canvas_width, self.context.canvas_height);
+	};
 
 	// Run constructor
 	self.init();
