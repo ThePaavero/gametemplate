@@ -24,7 +24,7 @@ function log(msg)
  * Include a JS file.
  * Provides a callback possibility.
  *
- * @param  {array}   paths    Paths of JS files (root is set to /assets/js/)
+ * @param  {array}    paths    Paths of JS files (root is set to /assets/js/)
  * @param  {function} callback Function to call when all files have loaded
  * @return void
  */
