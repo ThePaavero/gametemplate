@@ -35,7 +35,14 @@ game.canvas = function(width, height)
 		self.el.id   = game.id + '_canvas';
 		self.context = self.el.getContext('2d');
 
-		document.body.appendChild(self.el);
+		if(document.getElementById('container'))
+		{
+			document.getElementById('container').appendChild(self.el);
+		}
+		else
+		{
+			document.body.appendChild(self.el);
+		}
 	}
 
 	/**
