@@ -55,16 +55,16 @@ function game_init()
 	// Now that the base is set up, include the specific game JS
 	include(['game/game.js'], function()
 	{
-		// Check that it has a "start" method
-		if(typeof game.start !== 'function')
+		// Check that it has a "run" method
+		if(typeof game.run !== 'function')
 		{
 			// Sucks, bail
-			throw new Error('You need to create a start method for the game object!');
+			throw new Error('You need to create a "run" method for the game object!');
 			return;
 		}
 
 		// Let the custom game logic take over!
-		game.start();
+		game.run();
 	});
 }
 

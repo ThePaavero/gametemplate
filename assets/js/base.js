@@ -72,7 +72,7 @@ function include(paths, callback)
  */
 $(function()
 {
-	// Include all common framework/boilerplate functionalities
+	// Include all common framework/boilerplate functionalities and go from there...
 	include(['index.js']);
 });
 

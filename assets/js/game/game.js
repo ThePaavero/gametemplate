@@ -1,12 +1,17 @@
 /**
  * Game JS
- *
- * Rememeber to use the "game" namespace/object!
  */
 
-game.start = function()
+game.run = function()
 {
-	log('Game has started');
+	var self = this;
+
+	self.init = function()
+	{
+		log('Game "' + self.id + '" is running and initializing...');
+	}
+
+	self.init();
 }
 
 // EOF
