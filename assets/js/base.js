@@ -73,23 +73,7 @@ function include(paths, callback)
 $(function()
 {
 	// Include all common framework/boilerplate functionalities
-	include(['index.js'], function()
-	{
-		// Then, when that's loaded, include the specific game JS
-		include(['game/game.js'], function()
-		{
-			// Check that it has a "start" method
-			if(typeof game.start !== 'function')
-			{
-				// Sucks, bail
-				throw new Error('You need to create a start method for the game object!');
-				return;
-			}
-
-			// Let the custom game logic take over!
-			game.start();
-		});
-	});
+	include(['index.js']);
 });
 
 // EOF
