@@ -15,7 +15,7 @@ game.main = function()
 
 	self.game_frame = function()
 	{
-		//
+		log('Frame');
 	}
 
 	self.start();

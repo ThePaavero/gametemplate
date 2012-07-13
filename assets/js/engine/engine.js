@@ -82,7 +82,7 @@ game.engine = function()
 		self.running = setInterval(function()
 		{
 			self.update();
-		}, 1000);
+		}, game.conf.frame_delay);
 	}
 
 	// Run constructor

@@ -36,7 +36,10 @@ function game_init()
 	// Grab the global "game" object and assign it to "g" for less syntax
 	var g = game;
 
-	// TODO: ~everything!
+	// Configuration values
+	g.conf = {};
+	g.conf.frame_delay = 1; // As fast as possible
+	g.conf.game_name   = 'default_game'; // As fast as possible
 
 	// Now that the base is set up, include the specific game JS
 	include(['game/game.js'], function()
@@ -46,7 +49,7 @@ function game_init()
 		$('#loading_javascript').remove();
 
 		// Set a game ID
-		g.id = 'default_game';
+		g.id = g.conf.game_name;
 
 		// Canvas dimensions (in pixels)
 		g.canvas_width  = 650;
