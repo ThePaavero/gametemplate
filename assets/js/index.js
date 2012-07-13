@@ -36,41 +36,40 @@ function game_init()
 	// Grab the global "game" object and assign it to "g" for less syntax
 	var g = game;
 
-	// Remove the "Loading..." message
-	$('#loading_javascript').remove();
-
-	// Set a game ID
-	g.id = 'default_game';
-
-	// Canvas dimensions (in pixels)
-	g.canvas_width  = 650;
-	g.canvas_height = 400;
-
-	// Create our "modules"
-	g.canvas = new g.canvas(g.canvas_width, g.canvas_height);
-	g.engine = new g.engine();
-
-	// Introduce the game engine to its canvas
-	// (both object and DOM element as well as context of DOM element)
-	g.engine.set_canvas_object(g.canvas.get(true));
-	g.engine.set_canvas_element(g.canvas.get);
-	g.engine.set_canvas_context(g.canvas.get_context());
-
 	// TODO: ~everything!
 
 	// Now that the base is set up, include the specific game JS
 	include(['game/game.js'], function()
 	{
-		// Check that it has given our game object a "run" method
-		if(typeof g.run !== 'function')
+
+		// Remove the "Loading..." message
+		$('#loading_javascript').remove();
+
+		// Set a game ID
+		g.id = 'default_game';
+
+		// Canvas dimensions (in pixels)
+		g.canvas_width  = 650;
+		g.canvas_height = 400;
+
+		// Check that our game object has been given a "main" method/object
+		if(typeof g.main !== 'function')
 		{
 			// Nope, sucks, bail
-			throw new Error('You need to create a "run" method for the game object!');
+			throw new Error('You need to create a "main" method for the game object!');
 			return;
 		}
 
-		// Let the custom game logic take over!
-		g.run();
+		// Create our "modules"
+		g.canvas = new g.canvas(g.canvas_width, g.canvas_height);
+		g.engine = new g.engine();
+		g.main   = new g.main();
+
+		// Introduce the game engine to its canvas
+		// (both object and DOM element as well as context of DOM element)
+		g.engine.set_canvas_object(g.canvas.get(true));
+		g.engine.set_canvas_element(g.canvas.get);
+		g.engine.set_canvas_context(g.canvas.get_context());
 	});
 }
 

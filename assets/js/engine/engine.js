@@ -17,6 +17,7 @@ game.engine = function()
 	self.init = function()
 	{
 		log('Game Engine initiated');
+		self.run();
 	}
 
 	/**
@@ -52,19 +53,6 @@ game.engine = function()
 	}
 
 	/**
-	 * Run "frames" inside our canvas
-	 *
-	 * @return void
-	 */
-	self.run = function()
-	{
-		setInterval(function()
-		{
-			self.canvas_object.update();
-		}, 1);
-	}
-
-	/**
 	 * This is what happens for each "frame" inside our canvas
 	 *
 	 * @return void
@@ -73,9 +61,29 @@ game.engine = function()
 	{
 		self.canvas_object.clear();
 
-		// Todo: Stuff to do on each frame!
+		if(typeof game.main.game_frame !== 'function')
+		{
+			// We have nothing to do
+			throw new Error('Engine has no game_frame method to run!');
+			return;
+		}
+
+		// Let the game logic tell us what else to do on each "frame"
+		game.main.game_frame();
 	}
 
+	/**
+	 * Run "frames" inside our canvas
+	 *
+	 * @return void
+	 */
+	self.run = function()
+	{
+		self.running = setInterval(function()
+		{
+			self.update();
+		}, 1000);
+	}
 
 	// Run constructor
 	self.init();
