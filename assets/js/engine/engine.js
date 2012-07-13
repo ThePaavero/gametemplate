@@ -17,7 +17,6 @@ game.engine = function()
 	self.init = function()
 	{
 		log('Game Engine initiated');
-		self.run();
 	}
 
 	/**
@@ -73,16 +72,35 @@ game.engine = function()
 	}
 
 	/**
+	 * Stop game
+	 *
+	 * @return void
+	 */
+	self.stop = function()
+	{
+		if(self.running)
+		{
+			clearInterval(self.running);
+		}
+	}
+
+	/**
 	 * Run "frames" inside our canvas
 	 *
 	 * @return void
 	 */
 	self.run = function()
 	{
+		self.stop();
+
+		game.id = game.conf.game_name;
+
 		self.running = setInterval(function()
 		{
 			self.update();
 		}, game.conf.frame_delay);
+
+		log('Game "' + game.id + '" is now running.');
 	}
 
 	// Run constructor

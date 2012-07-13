@@ -31,9 +31,9 @@ game.canvas = function(width, height)
 	 */
 	self.spawn = function()
 	{
-		self.el      = document.createElement('canvas');
-		self.el.id   = game.id + '_canvas';
-		self.context = self.el.getContext('2d');
+		self.el        = document.createElement('canvas');
+		self.el.id     = game.id + '_canvas';
+		self.context   = self.el.getContext('2d');
 
 		if(document.getElementById('container'))
 		{
@@ -52,6 +52,9 @@ game.canvas = function(width, height)
 	 */
 	self.set_dimensions = function()
 	{
+		self.el.width  = self.width;
+		self.el.height = self.height;
+
 		$(self.el).css({
 			width  : self.width,
 			height : self.height
@@ -92,7 +95,15 @@ game.canvas = function(width, height)
 	 */
 	self.clear = function()
 	{
-		self.context.clearRect(0, 0, self.context.canvas_width, self.context.canvas_height);
+		// Store the current transformation matrix
+		self.context.save();
+
+		// Use the identity matrix while clearing the canvas
+		self.context.setTransform(1, 0, 0, 1, 0, 0);
+		self.context.clearRect(0, 0, self.width, self.height);
+
+		// Restore the transform
+		self.context.restore();
 	};
 
 	// Run constructor

@@ -39,7 +39,9 @@ function game_init()
 	// Configuration values
 	g.conf = {};
 	g.conf.frame_delay = 1; // As fast as possible
-	g.conf.game_name   = 'default_game'; // As fast as possible
+	g.conf.game_name   = 'default_game'; // Default name
+	g.conf.width       = 650; // Canvas width (in pixels)
+	g.conf.height      = 400; // Canvas height (in pixels)
 
 	// Now that the base is set up, include the specific game JS
 	include(['game/game.js'], function()
@@ -47,13 +49,6 @@ function game_init()
 
 		// Remove the "Loading..." message
 		$('#loading_javascript').remove();
-
-		// Set a game ID
-		g.id = g.conf.game_name;
-
-		// Canvas dimensions (in pixels)
-		g.canvas_width  = 650;
-		g.canvas_height = 400;
 
 		// Check that our game object has been given a "main" method/object
 		if(typeof g.main !== 'function')
@@ -64,7 +59,7 @@ function game_init()
 		}
 
 		// Create our "modules"
-		g.canvas = new g.canvas(g.canvas_width, g.canvas_height);
+		g.canvas = new g.canvas(g.conf.width, g.conf.height);
 		g.engine = new g.engine();
 		g.main   = new g.main();
 
