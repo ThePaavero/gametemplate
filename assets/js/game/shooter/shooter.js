@@ -24,7 +24,9 @@ game.shooter = function(g)
 
 	self.per_frame = function()
 	{
-		//
+		// Player
+				   // context.drawImage(self.element,srcX,srcY,srcW,srcH,destX,destY,destW,destH);
+		self.g.canvas.context.drawImage(self.p.element, self.p.coords.x, self.p.coords.y);
 	}
 }
 

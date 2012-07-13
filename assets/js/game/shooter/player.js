@@ -4,12 +4,24 @@
 
 game.shooter.player = function()
 {
-	log('Created player');
+	log('Creating player...');
 
 	var self = this;
 
+	// Create our sprite thing
+	self.element = new Image();
+	self.element.src = _root + 'assets/img/smw_mario_sheet.png';
+	// game.canvas.context.drawImage(self.element,srcX,srcY,srcW,srcH,destX,destY,destW,destH);
+	// game.canvas.context.drawImage(self.element, 0, 0);
+
 	// Initial posture
 	self.posture = 'standing';
+
+	self.coords = {};
+
+	// Initial position
+	self.coords.x = 10;
+	self.coords.y = 10;
 
 	/**
 	 * Action move
@@ -65,6 +77,12 @@ game.shooter.player = function()
 	 */
 	self.stand_up = function()
 	{
+		if(self.posture !== 'crouching')
+		{
+			// Can't "stand up" unless we're crouching
+			return;
+		}
+
 		self.posture = 'standing';
 		log('Stands up');
 	}
