@@ -34,6 +34,7 @@ include([
 function game_init()
 {
 	// Grab the global "game" object and assign it to "g" for less syntax
+	// game = new game();
 	var g = game;
 
 	// Configuration values

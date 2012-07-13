@@ -8,25 +8,28 @@ game.main = function()
 {
 	var self = this;
 
-	// Make a shortcut to our canvas context
-	self.c = game.canvas.context;
-
 	self.start = function()
 	{
 		// Override config vars
 		game.conf.frame_delay = 1;
-		game.conf.game_name   = 'my_game';
+		game.conf.game_name   = 'shooter';
 
-		// Start game with new config values in place
-		game.engine.run();
+		self.g = {};
+
+		include(['game/shooter/shooter.js'], function()
+		{
+			self.g = new game.shooter(game);
+			include(['game/shooter/player.js'], function()
+			{
+				self.g.init();
+				game.engine.run();
+			});
+		});
 	}
 
 	self.game_frame = function()
 	{
-		// Draw something onto our canvas
-		self.c.textBaseline = 'top';
-		self.c.font         = "30px sans-serif";
-		self.c.fillText('My Game', 8, 5);
+		self.g.per_frame();
 	}
 
 	self.start();
