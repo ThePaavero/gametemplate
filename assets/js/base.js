@@ -10,6 +10,17 @@
 // Helper functions below
 
 /**
+ * Remove element from DOM
+ *
+ * @param  {object} element HTML Element
+ * @return void
+ */
+function remove(element)
+{
+    element.parentNode.removeChild(element);
+}
+
+/**
  * Log to console (pretty much just a shortcut for console.log())
  *
  * @param  {string} msg Message to log
@@ -70,10 +81,10 @@ function include(paths, callback)
  *
  * @return void
  */
-$(function()
+window.onload = function()
 {
 	// Include all common framework/boilerplate functionalities and go from there...
 	include(['index.js']);
-});
+}
 
 // EOF

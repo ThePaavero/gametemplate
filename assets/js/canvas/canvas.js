@@ -55,10 +55,8 @@ game.canvas = function(width, height)
 		self.el.width  = self.width;
 		self.el.height = self.height;
 
-		$(self.el).css({
-			width  : self.width,
-			height : self.height
-		});
+		self.el.style.width = self.width;
+		self.el.style.height = self.height;
 	}
 
 	/**

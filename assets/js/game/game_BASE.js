@@ -8,6 +8,9 @@ game.main = function()
 {
 	var self = this;
 
+	// Make a shortcut to our canvas context
+	self.c = game.canvas.context;
+
 	self.start = function()
 	{
 		// Override config vars
@@ -20,7 +23,7 @@ game.main = function()
 
 	self.game_frame = function()
 	{
-		log('Frame');
+		// Game logic for each frame goes here
 	}
 
 	self.start();

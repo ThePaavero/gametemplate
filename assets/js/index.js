@@ -48,7 +48,7 @@ function game_init()
 	{
 
 		// Remove the "Loading..." message
-		$('#loading_javascript').remove();
+		remove(document.getElementById('loading_javascript'));
 
 		// Check that our game object has been given a "main" method/object
 		if(typeof g.main !== 'function')

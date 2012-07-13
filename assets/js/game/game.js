@@ -17,9 +17,6 @@ game.main = function()
 		game.conf.frame_delay = 1;
 		game.conf.game_name   = 'my_game';
 
-		self.dummy_rect_x = 0;
-		self.dummy_rect_y = 0;
-
 		// Start game with new config values in place
 		game.engine.run();
 	}
