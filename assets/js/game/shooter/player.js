@@ -20,8 +20,15 @@ game.shooter.player = function()
 	self.coords = {};
 
 	// Initial position
-	self.coords.x = 10;
-	self.coords.y = 10;
+	self.coords.x = 80;
+	self.coords.y = 80;
+
+	// Dimensions
+	self.width    = 45;
+	self.height   = 35;
+
+	self.sprite_x = 115;
+	self.sprite_y = 0;
 
 	/**
 	 * Action move
