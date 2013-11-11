@@ -1,0 +1,1 @@
+window.Game={},Game.App={},Game.Modules={},Game.Helpers={},$(function(){var a=new Game.App,b=$("#game > canvas");a.setCanvas(b[0]),a.init(),window.gameGlobal=a}),Game.App=function(){var a,b;this.init=function(){console.log("Game starting...")},this.setCanvas=function(c){a=c,b=a.getContext("2d")}};
