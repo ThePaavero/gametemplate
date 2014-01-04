@@ -1,8 +1,8 @@
 window.Game = {};
 
-Game.App     = {};
-Game.Modules = {};
-Game.Helpers = {};
+Game.App        = {};
+Game.Components = {};
+Game.Helpers    = {};
 
 /**
  * The entire "framework"
@@ -21,6 +21,10 @@ $(function()
 	// -----------------------------------------------------------------------
 
 	var canvas = $('#game > canvas');
+
+	canvas.attr('width', canvas.width());
+	canvas.attr('height', canvas.height());
+
 	game.setCanvas(canvas[0]);
 	game.init();
 

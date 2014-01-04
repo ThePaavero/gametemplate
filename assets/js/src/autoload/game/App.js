@@ -7,7 +7,7 @@ Game.App = function() {
 
 	this.init = function()
 	{
-		console.log('Game starting...');
+		setControls();
 	};
 
 	this.setCanvas = function(_canvas)
@@ -19,9 +19,6 @@ Game.App = function() {
 	this.onFrame = function()
 	{
 		resetCanvas();
-
-		/* Game logic goes here */
-
 		drawCanvas();
 
 		if(show_fps)
@@ -36,10 +33,14 @@ Game.App = function() {
 		context.clearRect(0, 0, canvas.width, canvas.height);
 	};
 
+	// -----------------------------------------------------------------------
+
 	var drawCanvas = function()
 	{
-		console.log('REDRAWING');
+		// Game logic!
 	};
+
+	// -----------------------------------------------------------------------
 
 	// Stolen from http://stackoverflow.com/a/19775485
 	var countFPS = (function () {
@@ -63,6 +64,11 @@ Game.App = function() {
 	var showFPS = function(fps)
 	{
 		$('#fps').html(fps + ' FPS');
+	};
+
+	var setControls = function()
+	{
+		//
 	};
 
 };
